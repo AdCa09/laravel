@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 
+Route::get('/', [RestaurantController::class, 'home'])->name('home');
 
-Route::get('/', [RestaurantController::class, 'index'])->name('index');
+Route::get('/restaurants', [RestaurantController::class, 'listRestaurants'])->name('listRestaurants');
+
+Route::get('/{restaurant}', [RestaurantController::class, 'show'])->name('restaurant.show');
+
 
 
 
