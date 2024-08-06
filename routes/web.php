@@ -7,12 +7,11 @@ Route::get('/', [RestaurantController::class, 'home'])->name('home');
 
 Route::get('/restaurants', [RestaurantController::class, 'listRestaurants'])->name('listRestaurants');
 
-Route::get('/{restaurant}', [RestaurantController::class, 'show'])->name('restaurant.show');
+Route::get('/checkout', [RestaurantController::class, 'checkoutRestaurant'])->name('checkoutRestaurant');
+
+Route::get('/{restaurant}', [RestaurantController::class, 'showRestaurant'])->name('showRestaurant');
 
 
-
-
-// Route::get('/restaurants/{id}', [RestaurantController::class, 'show'])->name('restaurants.show');
 
 
 // Route::get('/restaurant/create', function(){

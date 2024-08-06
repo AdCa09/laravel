@@ -11,26 +11,33 @@ class RestaurantController extends Controller
 
     public function home(): View
     {
-        
-        return view('restaurants.index'); 
+        $restaurants = Restaurant::all();
+        return view('restaurants.home', [
+          'restaurants'=>$restaurants,
+        ]); 
     }
 
     public function listRestaurants(): View
     {
 
-        $restaurants = Restaurant::paginate(6);
+        $restaurants = Restaurant::all();
         return view('restaurants.listRestaurants', [
             'restaurants' => $restaurants,
         ]);
         
     }
 
-    public function show(Restaurant $restaurant): View
+    public function showRestaurant(Restaurant $restaurant): View
     {
-      return view('restaurants.show', [
+      return view('restaurants.showRestaurant', [
         'restaurant' => $restaurant,
       ]);
     }
+
+    public function checkoutRestaurant(): View
+  {
+    return view('restaurants.checkoutRestaurant');
+  }
 
 
     

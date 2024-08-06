@@ -30,7 +30,6 @@ class RestaurantFactory extends Factory
             'address'=>$faker->paragraph(2),
             'zipCode'=>$faker->randomNumber(4, true),
             'town'=>$word,
-            'country'=>$word,
             'description'=>$faker->paragraphs(asText: true),
             'review'=>$faker->randomNumber(1),
             'created_at'=>$created_at,

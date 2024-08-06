@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,16 +20,6 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
                 </svg>
             </a>
-            {{-- Formulaire de recherche --}}
-            <form action="{{ route('home') }}" class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
-                <input id="search" value="" class="px-2 w-full outline-none leading-none placeholder-slate-400" type="search" name="search" placeholder="Rechercher un article">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
-                        <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
-                    </svg>
-                </button>
-            </form>
-            
             {{-- Navigation --}}
             <nav x-data="{ open: false }" x-cloak class="relative">
                 <button
@@ -63,7 +54,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Commandes</a>
+                        <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Réservations</a>
                     </li>
                     <li>
                         <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Contacts</a>
@@ -89,15 +80,42 @@
                         <p class="text-xl lg:text-2xl text-slate-600">Min. €{{ $restaurant->price }}</p>
                         <ul class="flex flex-wrap gap-2">
                             <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">Tag 1</a></li>
-                            <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">Tag 2</a></li>
                         </ul>
                         <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($restaurant->address) }}" class=" underline text-xl lg:text-2xl text-slate-600" target="_blank">
                             {{--logo ici --}}
                             {{ $restaurant->address }}
                         </a>
+                        <a href="{{ route('checkoutRestaurant') }}" class="btn btn-primary mt-4 flex items-center">
+                            Valider ma réservation
+                        </a>
+                        
                         
                     </div>
                 </article>
+                <div class="max-w-4xl mx-auto p-6">
+                    <!-- Section header -->
+                    <div class="bg-white shadow rounded-lg p-6 mb-8">
+                        <h2 class="text-2xl font-semibold text-gray-800 flex items-center">
+                            <span class="mr-2">À propos du restaurant</span>
+                        </h2>
+                    </div>
+
+                    <div class="bg-white shadow rounded-lg p-6">
+                       <p>{{ $restaurant->description }}</p>
+                    </div>
+                </div>
+                <div class="bg-white max-w-4xl mx-auto rounded-lg shadow-lg flex">
+                    <h3 class="text-2xl font-semibold text-gray-800">Les avis :</h3>
+                    
+                    <div class="p-6 flex-1">
+                        <h2 class="text-2xl font-bold mb-2">ici ira le nom de la personne qui a laisser un avis</h2>
+                        <p class="text-gray-700 mb-4">Voici un petit texte descriptif pour donner plus d'informations sur le contenu de la carte.</p>
+                    </div>
+                    
+                    <div class="relative w-48 flex-shrink-0">
+                        <img class="w-full h-full object-cover rounded-r-lg" src="https://via.placeholder.com/500x300" alt="Image de la carte">
+                    </div>
+                </div>
                 {{-- Fin du --}}
             </div>
         </main>
