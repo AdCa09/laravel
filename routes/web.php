@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\AdminDashboardController;
+
+Route::get('/admin', [AdminDashboardController::class, 'adminDashboard'])->name('adminDashboard');
 
 Route::get('/', [RestaurantController::class, 'home'])->name('home');
 
@@ -11,7 +14,9 @@ Route::get('/checkout', [RestaurantController::class, 'checkoutRestaurant'])->na
 
 Route::get('/{restaurant}', [RestaurantController::class, 'showRestaurant'])->name('showRestaurant');
 
+Route::get('/categories/{category}', [RestaurantController::class, 'restaurantByCategory'])->name('restaurants.ByCategory');
 
+Route::get('/tags/{tag}', [RestaurantController::class, 'restaurantsByTag'])->name('restaurants.ByTag');
 
 
 // Route::get('/restaurant/create', function(){

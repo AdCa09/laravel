@@ -10,16 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('restaurants', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->string('thumbnail');
-            $table->string('name', 255);
+            $table->string('name');
             $table->string('slug')->unique();
-            $table->string('address', 255);
-            $table->integer('zipCode');
-            $table->string('town');
-            $table->text('description');
-            $table->integer('review');
             $table->timestamps();
         });
     }
@@ -29,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('restaurants');
+        Schema::dropIfExists('tags');
     }
 };

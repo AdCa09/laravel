@@ -4,21 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Category extends Model
+class Tag extends Model
 {
     use HasFactory;
+
 
     public function getRouteKeyName(): string
     {
         return 'slug';
+
     }
 
-
-    public function restaurants(): HasMany
+    public function restaurants(): BelongsToMany
     {
-
-        return $this->hasMany(Restaurant::class);
+        return $this->belongsToMany(Restaurant::class);
     }
 }
