@@ -74,6 +74,11 @@
             </nav>
         </header>
 
+        @if(session('status'))
+
+
+        @endif()
+
         <main class="mt-10 md:mt-12 lg:mt-16">
             <div class="space-y-10 md:space-y-16">
                 {{-- Début --}}
