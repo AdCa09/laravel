@@ -97,7 +97,6 @@ input[type="number"]:focus {
 }
 input[type="text"] {
     width: 100%;
-    padding: 10px;
     border-radius: 4px;
     font-size: 16px;
     margin-top: 10px;
