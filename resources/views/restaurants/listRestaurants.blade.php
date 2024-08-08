@@ -42,10 +42,10 @@
                     class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5"
                     tabindex="-1">
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Connexion</a>
+                        <a href="{{ route('register') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Connexion</a>
                     </li>
                     <li>
-                        <a href="#" class="btn btn-secondary flex items-center">
+                        <a href="{{ route('register') }}" class="btn btn-secondary flex items-center">
                             Inscription
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="w-5 h-5 ml-1">

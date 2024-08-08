@@ -18,7 +18,8 @@ class RestaurantSeeder extends Seeder
     {
         $categories = Category::all();
         $tags = Tag::all();
-        Restaurant::factory(20)
+
+        Restaurant::factory(5)
             ->sequence(fn() => [
                 'category_id' => $categories->random(),
             ])

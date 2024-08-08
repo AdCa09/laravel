@@ -26,7 +26,7 @@ class RestaurantFactory extends Factory
         return [
             'thumbnail'=>fake()->imageUrl(),
             'name'=>$name,
-            'slug'=>Str::slug($name),
+            'slug'=> Str::slug($name),
             'address'=>$faker->paragraph(2),
             'zipCode'=>$faker->randomNumber(4, true),
             'town'=>$word,

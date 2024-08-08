@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'GustoAway - Livraison de Nourriture'),
+    'name' => env('APP_NAME', 'Gusto-In - Réservations de restaurant'),
 
     /*
     |--------------------------------------------------------------------------

@@ -14,7 +14,7 @@ class TagSeeder extends Seeder
      */
     public function run(): void
     {
-        $tags = collect(['Pizza', 'Pâtes', 'Tacos', 'Sushi', 'Noodles', 'Burgers']);
+        $tags = collect(['Pizza', 'Pâtes', 'Tacos', 'Sushi', 'Noodles', 'Burgers', 'Kebab']);
 
         $tags->each(fn($tag) => Tag::create([
             'name' => $tag,

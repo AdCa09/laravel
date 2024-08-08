@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\Auth\RegisterController;
 
-Route::get('/admin', [AdminDashboardController::class, 'adminDashboard'])->name('adminDashboard');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/', [RestaurantController::class, 'home'])->name('home');
 

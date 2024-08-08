@@ -6,9 +6,8 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Layout extends Component
+abstract class AbstractLayout extends Component
 {
-
     /**
      * Create a new component instance.
      */
@@ -16,12 +15,5 @@ class Layout extends Component
     {
         $this->name = config('app.name') . ($name ? " | $name" : '');
     }
-
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
-    {
-        return view('layouts.default');
-    }
+   
 }
