@@ -14,7 +14,6 @@
         <div class="flex justify-between items-center">
 
             <a href="#" class="text-white text-lg font-semibold">Gusto-In</a>
-
             <button @click="open = !open" , @click.outside="if (open) open = false"
                 class="w-8 h-8 flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ml-auto lg:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -26,18 +25,6 @@
 
 
             <div class="hidden lg:flex lg:space-x-8 lg:items-center">
-                <a href="{{ route('register') }}"
-                    class="text-white text-sm font-semibold py-2 px-4 hover:bg-gray-700 rounded-lg">Connexion</a>
-                <a href="{{ route('register') }}"
-                    class="text-white text-sm font-semibold py-2 px-4 hover:bg-gray-700 rounded-lg">
-                    Inscription
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                        class="w-5 h-5 inline ml-1">
-                        <path fill-rule="evenodd"
-                            d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </a>
                 <a href=""
                     class="text-white text-sm font-semibold py-2 px-4 hover:bg-gray-700 rounded-lg">Réservations</a>
                 <a href="" class="text-white text-sm font-semibold py-2 px-4 hover:bg-gray-700 rounded-lg">Contacts</a>
@@ -53,20 +40,6 @@
             class="lg:hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
             tabindex="-1">
             <li>
-                <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Connexion</a>
-            </li>
-            <li>
-                <a href="" class="flex items-center px-4 py-2 font-semibold text-sm text-indigo-700 hover:bg-gray-100">
-                    Inscription
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                        class="w-5 h-5 ml-1">
-                        <path fill-rule="evenodd"
-                            d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </a>
-            </li>
-            <li>
                 <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Réservations</a>
             </li>
             <li>
@@ -80,6 +53,23 @@
         style="background-image: url('https://cdn.pixabay.com/photo/2020/02/19/05/10/doodle-4861309_1280.jpg');">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-60">
             <div>
+                @if (session('status'))
+                    <div class="mt-10 rounded-md bg-green-50 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-green-800">{{ session('status') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 <h1 class="text-5xl font-bold mb-4">Bienvenue chez Gusto-In</h1>
                 <p class="text-xl mb-6">Des plats délicieux prêts à venir déguster</p>
                 <a href="{{ route('listRestaurants') }}"
@@ -88,6 +78,7 @@
             </div>
         </div>
     </header>
+
 
     <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto text-center">

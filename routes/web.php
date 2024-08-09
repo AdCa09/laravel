@@ -7,7 +7,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+
 Route::post('/register', [RegisterController::class, 'register']);
+
 Route::get('/home', [HomeController::class, 'index'])->name('index');
 
 Route::get('/', [RestaurantController::class, 'home'])->name('home');

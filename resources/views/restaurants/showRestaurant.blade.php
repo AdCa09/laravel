@@ -8,12 +8,9 @@
     <title>{{ config('app.name') . ' | ' . $restaurant->title }}</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link
-     rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
-   />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
- 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
 </head>
 
 <body class="antialiased pt-10 pb-16 md:pb-32">
@@ -94,10 +91,16 @@
                         <a href=""
                             class="underline font bold texte-slate-700 text-lg">Note:{{ $restaurant->review }}</a>
                         <p class="text-xl lg:text-2xl text-slate-600">Min. €{{ $restaurant->price }}</p>
-                        <ul class="flex flex-wrap gap-2">
-                            <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">Tag 1</a>
-                            </li>
-                        </ul>
+                        @if($restaurant->tags->isNotEmpty())
+                            <ul class="flex flex-wrap gap-2">
+                                @foreach($restaurant->tags as $tag)
+                                    <li>
+                                        <a href="{{ route('restaurants.ByTag', ['tag' => $tag]) }}"
+                                            class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">{{ $tag->name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
                         <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($restaurant->address) }}"
                             class=" underline text-xl lg:text-2xl text-slate-600" target="_blank">
                             {{--logo ici --}}
@@ -110,10 +113,11 @@
                                 <label for="prenom">Nom + Prénom :</label>
                                 <input type="text" id="inputPrenom" name="prenom" required>
                                 <label for="nombrePersonnes">Nombre de personnes :</label>
-                                <input type="number" id="nombrePersonnes" name="nombrePersonnes" min="1" max="10" value="1" step="1" required><br>
+                                <input type="number" id="nombrePersonnes" name="nombrePersonnes" min="1" max="10"
+                                    value="1" step="1" required><br>
                                 Numéro de téléphone :
                                 <input id="inputPhone" type="tel" name="phone" /><span></span>
-                                
+
                                 <button type="submit">Valider ma réservation</button>
                             </form>
                         </div>
@@ -152,8 +156,9 @@
 <script>
     const phoneInputField = document.querySelector("#inputPhone");
     const phoneInput = window.intlTelInput(phoneInputField, {
-      utilsScript:
-        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
-  </script>
+</script>
+
 </html>

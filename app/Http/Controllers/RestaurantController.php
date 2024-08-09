@@ -25,8 +25,8 @@ class RestaurantController extends Controller
 
     if ($search = $request->search) {
       $query->where('name', 'LIKE', '%' . $search . '%');
-        // ->orWhere('description', 'LIKE', '%' . $search . '%') -> si ont veux en plus rechercher par description ou autre
-        
+      // ->orWhere('description', 'LIKE', '%' . $search . '%') -> si ont veux en plus rechercher par description ou autre
+
     }
     $restaurants = $query->get();
     return view('restaurants.listRestaurants', [

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'between:8,30'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => [
-                'required', 'string', 'min:8', 'required_with:password_confirmation|same:password_confirmation',
+                'required',
+                'string',
+                'min:8',
+                'required_with:password_confirmation|same:password_confirmation',
                 'password_confirmation' => 'min:6'
             ],
 
