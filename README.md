@@ -4,11 +4,12 @@
 
 ## Description
 
-Ce projet est en cours de développement et vise à créer un site web de réservation de restaurants. Le site permettra aux utilisateurs de rechercher des restaurants, de consulter les disponibilités, et de réserver une table en ligne. Il est construit en utilisant les technologies suivantes :
+Ce projet est en cours de développement et vise à créer un site web de réservation de restaurants, j'ai décider de crée cela pour completer mon parcours Laravel. Le site permettra aux utilisateurs de rechercher des restaurants, de consulter les disponibilités, et de réserver une table en ligne. Il est construit en utilisant les technologies suivantes :
 
 - **PHP** pour le développement backend
 - **Laravel** comme framework PHP
 - **Tailwind CSS** pour le design et la mise en page
+- **Alpine Js** réactivité des buttons etc.
 
 ## Fonctionnalités
 
